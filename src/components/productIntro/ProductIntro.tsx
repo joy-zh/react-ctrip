@@ -97,7 +97,7 @@ export const ProductIntro: React.FC<PropsType> = ({
     },
   ]
 
-  return <div className={'intro-container'}>
+  return <div className={styles['intro-container']}>
     <Typography.Title level={4}>{title}</Typography.Title>
     <Typography.Text>{shortDescription}</Typography.Text>
     <div className={styles['intro-detail-content']}>
