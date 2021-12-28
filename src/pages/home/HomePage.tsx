@@ -1,6 +1,5 @@
 import React from "react";
-import styles from './HomePage.module.css'
-import { Header, Footer, SideMenu, Carousel, ProductCollection, Cooperation } from '../../components';
+import { SideMenu, Carousel, ProductCollection, Cooperation } from '../../components';
 import { Row, Col, Typography, Spin } from 'antd'
 import sideImage1 from '../../assets/images/sider_2019_12-09.png'
 import sideImage2 from '../../assets/images/sider_2019_02-04.png'
@@ -11,6 +10,7 @@ import { RootState } from '../../redux/store'
 import {
   giveMeDataActionCreator
 } from '../../redux/recommendProducts/recommendProductsActions'
+import { MainLayout } from '../../layouts/mainLayout'
 
 const mapStateToProps = (state: RootState) => {
   return {
@@ -55,9 +55,7 @@ class HomePageComponent extends React.Component<PropType> {
       return <div>网站出错 {error}</div>
     }
     return (<>
-      <Header />
-      {/* 页面内容 */}
-      <div className={styles['page-content']}>
+      <MainLayout>
         <Row style={{ marginTop: 20 }}>
           <Col span={6}>
             <SideMenu />
@@ -82,8 +80,7 @@ class HomePageComponent extends React.Component<PropType> {
           products={productList[2].touristRoutes}
         ></ProductCollection>
         <Cooperation></Cooperation>
-      </div>
-      <Footer />
+      </MainLayout>
     </>)
   }
 }

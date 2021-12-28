@@ -6,6 +6,7 @@ import { Spin } from 'antd'
 import { searchProduct } from '../../redux/productSearch/slice'
 import { useSelector } from '../../redux/hooks'
 import { useDispatch } from 'react-redux'
+import { MainLayout } from '../../layouts/mainLayout'
 
 interface MatchParams {
   keywords: string
@@ -47,8 +48,7 @@ export const SearchPage: React.FC = () => {
   }
 
   return <>
-    <Header></Header>
-    <div className={styles['page-content']}>
+    <MainLayout>
       {/* 分类过滤器 */}
       <div className={styles['product-list-container']}>
         <FilterArea></FilterArea>
@@ -61,7 +61,6 @@ export const SearchPage: React.FC = () => {
           onPageChange={onPageChange}
         />
       </div>
-    </div>
-    <Footer></Footer>
+    </MainLayout>
   </>
 }
